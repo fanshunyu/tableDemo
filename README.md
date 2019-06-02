@@ -51,6 +51,43 @@ yarn generate
 
 [⬆ Back to Top](#table-of-contents)
 
+## mock接口
+
+[yapi.demo.qunar.com](http://yapi.demo.qunar.com/)
+
+https://github.com/ymfe/yapi
+
+YApi 是**高效**、**易用**、**功能强大**的 api 管理平台，旨在为开发、产品、测试人员提供更优雅的接口管理服务。可以帮助开发者轻松创建、发布、维护 API，YApi 还为用户提供了优秀的交互体验，开发人员只需利用平台提供的接口数据写入工具以及简单的点击操作就可以实现接口的管理。
+
+**QQ交流群**: 644642474
+
+### 特性
+
+- 基于 Json5 和 Mockjs 定义接口返回数据的结构和文档，效率提升多倍
+- 扁平化权限设计，即保证了大型企业级项目的管理，又保证了易用性
+- 类似 postman 的接口调试
+- 自动化测试, 支持对 Response 断言
+- MockServer 除支持普通的随机 mock 外，还增加了 Mock 期望功能，根据设置的请求过滤规则，返回期望数据
+- 支持 postman, har, swagger 数据导入
+- 免费开源，内网部署，信息再也不怕泄露了
+
+### 内网部署
+
+#### 环境要求
+
+- nodejs（7.6+)
+- mongodb（2.6+）
+- git
+
+#### 安装
+
+使用我们提供的 yapi-cli 工具，部署 YApi 平台是非常容易的。执行 yapi server 启动可视化部署程序，输入相应的配置和点击开始部署，就能完成整个网站的部署。部署完成之后，可按照提示信息，执行 node/{网站路径/server/app.js} 启动服务器。在浏览器打开指定url, 点击登录输入您刚才设置的管理员邮箱，默认密码为 ymfe.org 登录系统（默认密码可在个人中心修改）。
+
+```
+npm install -g yapi-cli --registry https://registry.npm.taobao.org
+yapi server 
+```
+
 ## 工程结构
 
 ```sh
@@ -214,7 +251,7 @@ env: {
 
 1. 在 `yarn mock` 模式下，都会变成 `http://mock.api.server/api`
 
-1. 在 `yarn dev` 模式下，都会变成 `http://real.api.server/api`
+2. 在 `yarn dev` 模式下，都会变成 `http://real.api.server/api`
 
 **注意，每次修改代理设置，都需要重新启动应用才能生效**
 
@@ -245,12 +282,12 @@ mounted() {
 
 **自带的环境变量说明**
 
-| 环境变量名  | 说明                                                         | 是否必须             | 默认值                   | 示例 |
-| ----------- | ------------------------------------------------------------ | ----------------------- | ------------------------- | ----------- |
-| PUBLIC_PATH | 对应webpack的publicPath，用于指定静态文件访问路径 | 是 |  | http://cdn.deepexi.com |
-| API_SERVER | axios的baseURL，可不传。不传时，使用相对路径发送请求 | 否 |    | https://www.easy-mock.com |
-| NO_LOGIN    | 是否登陆拦截，传1则不会有登录拦截                            | 否 |                          | 1 |
-| COOKIE_PATH | 用于设置cookie的path，如果多个项目需要共享cookie，则应该保证项目在共同的目录下，且设置COOKIE_PATH为它们的共同目录地址 | 否                      | /                   | /xpaas |
+| 环境变量名       | 说明                                       | 是否必须 | 默认值  | 示例                        |
+| ----------- | ---------------------------------------- | ---- | ---- | ------------------------- |
+| PUBLIC_PATH | 对应webpack的publicPath，用于指定静态文件访问路径        | 是    |      | http://cdn.deepexi.com    |
+| API_SERVER  | axios的baseURL，可不传。不传时，使用相对路径发送请求         | 否    |      | https://www.easy-mock.com |
+| NO_LOGIN    | 是否登陆拦截，传1则不会有登录拦截                        | 否    |      | 1                         |
+| COOKIE_PATH | 用于设置cookie的path，如果多个项目需要共享cookie，则应该保证项目在共同的目录下，且设置COOKIE_PATH为它们的共同目录地址 | 否    | /    | /xpaas                    |
 
 [⬆ Back to Top](#table-of-contents)
 
